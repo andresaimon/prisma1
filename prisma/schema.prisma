@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  //@id: chave primária
+  id         String   @id @default(uuid())
+  name       String
+  bar_code   String   @unique
+  price      Decimal
+  created_at DateTime @default(now())
+
+  //definir o nome da tabela que será gravado no banco de dados:
+  @@map("products")
+  ProductCategory ProductCategory[]
+}
+
+model Category {
+  id   String @id @default(uuid())
+  name String
+
+  @@map("categories")
+  ProductCategory ProductCategory[]
+}
+
+//criação de um novo model para configurar um relacionamento many to many
+model ProductCategory {
+  id          String   @id @default(uuid())
+  id_product  String
+  product     Product  @relation(fields: [id_product], references: [id])
+  id_category String
+  category    Category @relation(fields: [id_category], references: [id])
+
+  @@map("products_categories")
+}
