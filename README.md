@@ -1,5 +1,3 @@
-# prisma1
-Tutorial Prisma - Rocketseat
 
 <h1 align="center">
 Node.js + Express + Typescript + Prisma + MySQL
