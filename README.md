@@ -14,6 +14,9 @@ Node.js + Express + Typescript + Prisma + MySQL
 - I installed Node.js using Ubuntu 20.04.3 LTS operating system following the link below:
 - https://github.com/nodesource/distributions/blob/master/README.md
 
+- And I use the npm like package manager. You can install following the insctructions in the link below:
+- https://www.npmjs.com/package/npm
+
 ## Express
 - "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications."
 - https://expressjs.com/
